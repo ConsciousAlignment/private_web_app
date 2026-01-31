@@ -1,30 +1,27 @@
-// 🔐 Firebase configuration (YOUR REAL CONFIG)
-const firebaseConfig = {
-  apiKey: "AIzaSyDMsNzep2kpFANzXZfH_J56i2Bu0FqpB2A",
-  authDomain: "private-web-app-9903c.firebaseapp.com",
-  projectId: "private-web-app-9903c",
-  storageBucket: "private-web-app-9903c.firebasestorage.app",
-  messagingSenderId: "641087792177",
-  appId: "1:641087792177:web:36ff5fcf0707c664fae110"
-};
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+</head>
+<body>
 
-// Initialize Firebase (compat version)
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
+  <h1>Login</h1>
 
-// Login logic
-document.getElementById("loginForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required><br><br>
+    <input type="password" id="password" placeholder="Password" required><br><br>
+    <button type="submit">Login</button>
+  </form>
 
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  <p id="error" style="color:red;"></p>
 
-  auth.signInWithEmailAndPassword(email, password)
-    .then(() => {
-      alert("Login successful!");
-      window.location.href = "private.html"; // redirect to private page
-    })
-    .catch(error => {
-      document.getElementById("error").innerText = error.message;
-    });
-});
+  <!-- Firebase SDKs (compat versions) -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+
+  <!-- Your script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
