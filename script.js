@@ -1,54 +1,30 @@
-// 🔐 Firebase config (PASTE YOUR REAL ONE HERE)
+// 🔐 Firebase configuration (PASTE YOUR REAL CONFIG HERE)
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY",
-  authDomain: "PASTE_YOUR_AUTH_DOMAIN",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_STORAGE_BUCKET",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "PASTE_API_KEY_HERE",
+  authDomain: "PASTE_AUTH_DOMAIN_HERE",
+  projectId: "PASTE_PROJECT_ID_HERE",
+  storageBucket: "PASTE_STORAGE_BUCKET_HERE",
+  messagingSenderId: "PASTE_MESSAGING_SENDER_ID_HERE",
+  appId: "PASTE_APP_ID_HERE"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-/* ======================
-   LOGIN PAGE LOGIC
-====================== */
-const loginForm = document.getElementById("loginForm");
+// Login form logic
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-if (loginForm) {
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    auth.signInWithEmailAndPassword(email, password)
-      .then(() => {
-        window.location.href = "private.html";
-      })
-      .catch(error => {
-        document.getElementById("error").innerText = error.message;
-      });
-  });
-}
-
-/* ======================
-   PRIVATE PAGE PROTECTION
-====================== */
-const logoutBtn = document.getElementById("logoutBtn");
-
-auth.onAuthStateChanged(user => {
-  if (!user && window.location.pathname.includes("private.html")) {
-    window.location.href = "index.html";
-  }
-});
-
-if (logoutBtn) {
-  logoutBtn.addEventListener("click", () => {
-    auth.signOut().then(() => {
-      window.location.href = "index.html";
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      // Redirect after successful login
+      window.location.href = "private.html";
+    })
+    .catch(error => {
+      document.getElementById("error").innerText = error.message;
     });
-  });
-}
+});
