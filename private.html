@@ -16,36 +16,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
   <!-- Script -->
-  <script>
-    // 🔐 Firebase configuration
-    const firebaseConfig = {
-      apiKey: "YOUR_REAL_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT",
-      storageBucket: "YOUR_PROJECT.appspot.com",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // Check if user is logged in
-    auth.onAuthStateChanged(user => {
-      if (!user) {
-        // Not logged in, redirect to login page
-        window.location.href = "index.html";
-      }
-    });
-
-    // Logout button
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      auth.signOut().then(() => {
-        window.location.href = "index.html";
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
