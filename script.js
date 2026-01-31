@@ -1,15 +1,10 @@
-// Placeholder login logic for testing
-document.getElementById('loginForm').addEventListener('submit', function(e){
-    e.preventDefault();
+const firebaseConfig = {
+  apiKey: "XXXXXXXXXXXX",
+  authDomain: "your-project.firebaseapp.com",
+  projectId: "your-project-id",
+  storageBucket: "your-project.appspot.com",
+  messagingSenderId: "XXXXXXXXXX",
+  appId: "XXXXXXXXXXXX"
+};
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
 
-    // Temporary test login (any email/password works for now)
-    if(email && password){
-        // Redirect to private page
-        window.location.href = 'private.html';
-    } else {
-        document.getElementById('error').innerText = 'Please enter email and password.';
-    }
-});
