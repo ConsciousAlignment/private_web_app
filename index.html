@@ -9,19 +9,20 @@
 
   <h1>Login</h1>
 
-  <form>
-    <input type="email" placeholder="Email"><br><br>
-    <input type="password" placeholder="Password"><br><br>
-    <button type="button">Login</button>
+  <form id="loginForm">
+    <input type="email" id="email" placeholder="Email" required><br><br>
+    <input type="password" id="password" placeholder="Password" required><br><br>
+    <button type="submit">Login</button>
   </form>
+
+  <p id="error" style="color:red;"></p>
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
 
-</body>
-</html>
+  <!-- Your script -->
+  <script src="script.js"></script>
 
 </body>
 </html>
-
